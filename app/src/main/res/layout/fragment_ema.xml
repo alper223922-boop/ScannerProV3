@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg_dark">
+
+    <!-- Control Panel -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:background="@drawable/panel_bg"
+        android:padding="16dp" android:layout_margin="12dp">
+
+        <!-- TIP selector as toggle buttons -->
+        <TextView style="@style/Label" android:text="TIP" android:layout_marginBottom="8dp"/>
+        <RadioGroup android:id="@+id/rgType" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="horizontal"
+            android:layout_marginBottom="14dp">
+            <RadioButton android:id="@+id/rbEMA" style="@style/RadioStyle"
+                android:text="EMA" android:textColor="@color/text_secondary"
+                android:checked="true"/>
+            <RadioButton android:id="@+id/rbSMA" style="@style/RadioStyle"
+                android:text="SMA" android:textColor="@color/text_secondary"/>
+            <RadioButton android:id="@+id/rbDEMA" style="@style/RadioStyle"
+                android:text="DEMA" android:textColor="@color/text_secondary"
+                android:layout_marginEnd="0dp"/>
+        </RadioGroup>
+
+        <!-- Period inputs -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="14dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp">
+                <TextView style="@style/Label" android:text="FAST PERIOD" android:layout_marginBottom="4dp"/>
+                <EditText android:id="@+id/etFast" android:layout_width="match_parent"
+                    android:layout_height="42dp" android:text="50" android:inputType="number"
+                    android:background="@drawable/input_bg" android:textColor="@color/gold"
+                    android:textSize="16sp" android:textStyle="bold"
+                    android:gravity="center" android:padding="8dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginEnd="8dp">
+                <TextView style="@style/Label" android:text="SLOW PERIOD" android:layout_marginBottom="4dp"/>
+                <EditText android:id="@+id/etSlow" android:layout_width="match_parent"
+                    android:layout_height="42dp" android:text="200" android:inputType="number"
+                    android:background="@drawable/input_bg" android:textColor="@color/gold"
+                    android:textSize="16sp" android:textStyle="bold"
+                    android:gravity="center" android:padding="8dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView style="@style/Label" android:text="SON MUM" android:layout_marginBottom="4dp"/>
+                <EditText android:id="@+id/etFreshness" android:layout_width="match_parent"
+                    android:layout_height="42dp" android:text="5" android:inputType="number"
+                    android:background="@drawable/input_bg" android:textColor="@color/gold"
+                    android:textSize="16sp" android:textStyle="bold"
+                    android:gravity="center" android:padding="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Timeframes -->
+        <TextView style="@style/Label" android:text="ZAMAN DILIMI" android:layout_marginBottom="8dp"/>
+        <com.google.android.material.chip.ChipGroup android:id="@+id/cgTimeframes"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- Direction filter -->
+        <TextView style="@style/Label" android:text="YOON" android:layout_marginBottom="8dp"/>
+        <RadioGroup android:id="@+id/rgFilter" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+            <RadioButton android:id="@+id/rbAll" style="@style/RadioStyle"
+                android:text="TUM" android:textColor="@color/text_secondary" android:checked="true"/>
+            <RadioButton android:id="@+id/rbGolden" style="@style/RadioStyle"
+                android:text="GOLDEN ↑" android:textColor="@color/green"/>
+            <RadioButton android:id="@+id/rbDeath" style="@style/RadioStyle"
+                android:text="DEATH ↓" android:textColor="@color/red"
+                android:layout_marginEnd="0dp"/>
+        </RadioGroup>
+
+        <!-- Scan Button -->
+        <Button android:id="@+id/btnScan" style="@style/ScanBtn" android:text="▶  TARAMAYI BASLAT"/>
+
+        <!-- Progress -->
+        <ProgressBar android:id="@+id/progressBar" android:layout_width="match_parent"
+            android:layout_height="4dp" android:layout_marginTop="10dp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/progress_bg"
+            android:progress="0" android:max="100" android:visibility="gone"/>
+        <TextView android:id="@+id/tvProgress" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textColor="@color/text_secondary"
+            android:textSize="10sp" android:layout_marginTop="5dp" android:visibility="gone"/>
+    </LinearLayout>
+
+    <!-- Result header -->
+    <TextView android:id="@+id/tvResultCount" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textColor="@color/text_muted"
+        android:textSize="9sp" android:letterSpacing="0.1" android:textAllCaps="true"
+        android:layout_marginStart="16dp" android:layout_marginBottom="6dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:paddingStart="12dp" android:paddingEnd="12dp"
+        android:paddingBottom="12dp" android:clipToPadding="false"/>
+</LinearLayout>

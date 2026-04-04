@@ -1,0 +1,5 @@
+-keep class com.scanner.pro.** { *; }
+-keep class okhttp3.** { *; }
+-keep class org.json.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**

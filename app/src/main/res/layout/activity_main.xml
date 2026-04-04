@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg_dark">
+
+    <!-- Top Header Bar -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="56dp"
+        android:background="@color/bg_header" android:orientation="horizontal"
+        android:gravity="center_vertical" android:paddingStart="18dp" android:paddingEnd="18dp">
+
+        <!-- Logo area -->
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="FUTURES SCANNER"
+                android:textColor="@color/gold" android:textSize="17sp"
+                android:textStyle="bold" android:letterSpacing="0.12"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="BINANCE PERPETUAL / USDT"
+                android:textColor="@color/text_muted" android:textSize="8sp"
+                android:letterSpacing="0.08"/>
+        </LinearLayout>
+
+        <!-- Live indicator -->
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:background="@drawable/live_badge" android:paddingStart="8dp"
+            android:paddingEnd="8dp" android:paddingTop="4dp" android:paddingBottom="4dp">
+            <TextView android:layout_width="6dp" android:layout_height="6dp"
+                android:background="@drawable/dot_green" android:layout_marginEnd="5dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="LIVE" android:textColor="@color/green"
+                android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.1"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tab divider -->
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+        android:background="@color/border"/>
+
+    <!-- Tabs -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent" android:layout_height="46dp"
+        android:background="@color/bg_header"
+        style="@style/TabStyle"
+        app:tabMode="fixed" app:tabGravity="fill"/>
+
+    <!-- Tab bottom line -->
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+        android:background="@color/border"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>
