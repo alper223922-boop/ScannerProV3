@@ -312,11 +312,11 @@ public class MultiFragment extends Fragment {
             // Pivot seviyeleri
             if (r.pivots != null) {
                 h.llPivots.setVisibility(View.VISIBLE);
-                h.tvPivots.setText(String.format(
-                    "PP:%.4f  R1:%.4f  S1:%.4f",
-                    r.pivots.pp, r.pivots.r1, r.pivots.s1));
+                h.tvPP.setText(String.format("PP %.2f", r.pivots.pp));
+                h.tvR1.setText(String.format("R1 %.2f", r.pivots.r1));
+                h.tvS1.setText(String.format("S1 %.2f", r.pivots.s1));
             } else {
-                h.tvPivots.setVisibility(View.GONE);
+                if (h.llPivots != null) h.llPivots.setVisibility(View.GONE);
             }
 
             // 24h degisim
@@ -328,7 +328,8 @@ public class MultiFragment extends Fragment {
         @Override public int getItemCount() { return data.size(); }
 
         static class VH extends RecyclerView.ViewHolder {
-            TextView tvSymbol, tvPrice, tvDirection, tvChange, tvVolume, tvPivots;
+            TextView tvSymbol, tvPrice, tvDirection, tvChange, tvVolume, tvPivots, tvPP, tvR1, tvS1;
+            android.widget.LinearLayout llPivots;
             ChipGroup cgSignals;
             VH(View v) {
                 super(v);
